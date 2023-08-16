@@ -9,13 +9,14 @@ import { Brand } from './entities/brand.entity';
 @Injectable()
 export class BrandsService {
 
-  private brands: Brand[] = [
-    {
-      id: uuid(),
-      name: 'Toyota',
-      createdAt: new Date().getTime(),
-    }
-  ]
+  private brands: Array<Brand>;
+  // [
+  //   {
+  //     id: uuid(),
+  //     name: 'Toyota',
+  //     createdAt: new Date().getTime(),
+  //   }
+  // ]
 
 
 
@@ -62,4 +63,12 @@ export class BrandsService {
     this.findOne(id);
     this.brands = this.brands.filter(brand => brand.id !== id);
   }
+
+
+  fillCarsWithSeedData(brands: Array<Brand>) {
+    this.brands = brands;
+  }
+
+
+
 }
